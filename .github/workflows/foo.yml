@@ -1,0 +1,17 @@
+name: foo
+
+on: [push, workflow-dispatch]
+
+jobs:
+  first:
+    name: first-job-name
+    runs-on: ubuntu-latest
+    steps:
+      - name: create hello message
+        id: hello
+        uses: omenking/barsoom@0.0.6
+        with:
+          name: 'Nemo'
+      - name: print hello message
+        run: echo '${{  steps.hello.outputs.greeting }}'
+        
