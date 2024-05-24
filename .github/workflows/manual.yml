@@ -26,8 +26,7 @@ jobs:
     steps:
       - name: create pass
         run: |
-          passcd=${{ inputs.passphrase || 'Nemo' }}
-          echo $passcd | base64 > ./pass_base64.txt
+          echo ${{ inputs.passphrase || 'Nemo' }} | base64 > ./pass_base64.txt
       - name: create greeting
         run: |
           echo "Hello, ${{ inputs.name }}. You authorized as ${{ inputs.role }}. You pass to login: $(cat ./pass_base64.txt)"
