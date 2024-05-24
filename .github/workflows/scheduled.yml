@@ -9,5 +9,5 @@ jobs:
     name: echo date
     runs-on: ubuntu-latest
     steps:
-      - name: step: echo date
+      - name: echo date
         run: echo 'current date is $(date)'
