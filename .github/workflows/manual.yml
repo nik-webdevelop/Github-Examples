@@ -1,0 +1,21 @@
+name: manual-wf
+
+on:
+  workflow_dispatch:
+
+jobs:
+  manual-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create file
+        if: ${{ inputs.file == Null }}
+        run: |
+          echo missing input file. creating file name_base64.txt
+          echo Nemo | base64 > ./name_base64.txt
+      - name: read file
+        id: read_file
+        run: |
+          echo "name=$(cat ./name_base64.txt)" >> $GITHUB_OUTPUT
+      - name: decode name
+        run: |
+          echo "result name: ${{steps.read_file.outputs.name}}"
