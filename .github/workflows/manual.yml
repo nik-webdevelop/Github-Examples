@@ -15,6 +15,7 @@ jobs:
       - name: read file
         id: read_file
         run: |
+          echo "encoded_name=$(cat ./name_base64.txt)"
           echo "encoded_name=$(cat ./name_base64.txt)" >> $GITHUB_OUTPUT
       - name: decode name
         id: decode_name
