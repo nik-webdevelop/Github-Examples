@@ -21,7 +21,7 @@ jobs:
         id: decode_name
         run: |
           echo $GITHUB_OUTPUT
-          temp_name=${{steps.read_file.outputs.encode_name}}
+          temp_name=${{steps.read_file.outputs.encoded_name}}
           echo $temp_name
           echo "name=$(echo $temp_name | base64 --decode)" >> $GITHUB_OUTPUT
           echo "result name: ${{steps.decode_name.outputs.name}}"
