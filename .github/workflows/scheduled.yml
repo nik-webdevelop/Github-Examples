@@ -1,0 +1,13 @@
+name: scheduled workflow
+
+on:
+  schedule:
+    - cron: '*/5 * * * ?'
+
+jobs:
+  main:
+    name: echo date
+    runs-on: ubuntu-latest
+    steps:
+      - name: step: echo date
+        run: echo 'current date is $(date)'
