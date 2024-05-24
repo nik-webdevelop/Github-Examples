@@ -2,20 +2,31 @@ name: manual-wf
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: user name
+        required: true
+        type: string
+      role:
+        description: user role
+        required: true
+        type: choice
+        default: user
+        options:
+          - user
+          - admin
+      passphrase:
+        description: passphrase
+        required: false
+        type: string
 
 jobs:
   manual-flow:
     runs-on: ubuntu-latest
     steps:
-      - name: create file
-        if: ${{ inputs.file == Null }}
+      - name: create pass
         run: |
-          echo missing input file. creating file name_base64.txt
-          echo Nemo | base64 > ./name_base64.txt
-      - name: read file
-        id: read_file
+          echo ${{ inputs.passphrase || 'Nemo' }} | base64 > ./pass_base64.txt
+      - name: create greeting
         run: |
-          echo "name=$(cat ./name_base64.txt)" >> $GITHUB_OUTPUT
-      - name: decode name
-        run: |
-          echo "result name: ${{steps.read_file.outputs.name}}"
+          echo "Hello, ${{ inputs.name }}. You authorized as ${{ inputs.role }}. You pass to login: $(cat ./pass_base64.txt)"
