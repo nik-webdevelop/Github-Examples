@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create file
-        if: ${{ inputs.file == Null }}
+        if: ${{ github.event.inputs.input1 == '' }}
         run: |
           echo missing input file. creating file name_base64.txt
           echo Nemo | base64 > ./name_base64.txt
