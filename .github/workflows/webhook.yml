@@ -1,7 +1,7 @@
 name: webhook workflow
 
 on: 
-    repository_dispatch: 
+  repository_dispatch:
 
 jobs: 
     main:
@@ -10,4 +10,4 @@ jobs:
         steps:
             - name: print payload
               run: |
-                  echo ${{ toJson(github.event.client_payload.data) }}
+                  echo ${{ toJSON(github.event.client_payload.data) }}
