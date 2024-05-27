@@ -2,7 +2,6 @@ name: webhook workflow
 
 on: 
     repository_dispatch: 
-        types: [custom_event]
 
 jobs: 
     main:
