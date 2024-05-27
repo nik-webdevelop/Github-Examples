@@ -12,7 +12,7 @@ jobs:
       - name: debug
         run: echo "::debug::Test debug message"
       - name: error
-        run: echo "::error file=/Readme.md,line=2,endColumn=5::Test error message"
+        run: echo "::error file=commands.yml,title=Error custom title,line=3,endLine=4::Test error message"
       - name: masking
         id: masking
         run: |
@@ -20,11 +20,11 @@ jobs:
           echo "::add-mask::$var"
           touch test.txt
           echo $var >> test.txt
-          echo "KEY=$var" >> $GITHUB_OUTPUT
+          echo "key=$var" >> $GITHUB_OUTPUT
       - name: print masking
         run: |
           cat test.txt
-          echo $KEY
+          echo ${{ steps.masking.outputs.key}}
       - name: job summary
         run: |
           echo "# *Summary*" >> $GITHUB_STEP_SUMMARY
