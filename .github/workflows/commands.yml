@@ -25,6 +25,10 @@ jobs:
         run: |
           cat test.txt
           echo ${{ steps.masking.outputs.key}}
+      - name: test masking equal
+        if: ${{ steps.masking.outputs.key == '12345' }}
+        run: |  
+          echo masked value is equal
       - name: job summary
         run: |
           echo "# *Summary*" >> $GITHUB_STEP_SUMMARY
