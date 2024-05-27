@@ -1,0 +1,14 @@
+name: webhook workflow
+
+on: 
+    repository_dispatch: 
+        types: [custom_event]
+
+jobs: 
+    main:
+        name: main job
+        runs-on: ubuntu-latest
+        steps:
+            - name: print payload
+              run: |
+                  echo ${{ github.event.client_payload.data }}
