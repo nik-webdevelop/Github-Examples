@@ -11,4 +11,4 @@ jobs:
         steps:
             - name: print payload
               run: |
-                  echo ${{ github.event.client_payload.data }}
+                  echo ${{ toJson(github.event.client_payload.data) }}
