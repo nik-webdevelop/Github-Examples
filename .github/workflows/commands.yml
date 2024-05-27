@@ -26,7 +26,7 @@ jobs:
           cat test.txt
           echo ${{ steps.masking.outputs.key}}
       - name: test masking equal
-        if: ${{ steps.masking.outputs.key == '12345' }}
+        if: ${{ steps.masking.outputs.key == '1234567' }}
         run: |  
           echo masked value is equal
       - name: job summary
