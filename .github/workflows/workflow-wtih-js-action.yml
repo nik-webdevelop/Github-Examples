@@ -1,0 +1,17 @@
+name: test js action workflow
+
+on: push
+
+jobs:
+    main:
+        runs-on: ubuntu-latest
+        steps:
+            - name: use js action
+              id: sum
+              uses: nik-webdevelop/js-action@v1
+              with: 
+                name: fooo
+                a: 13
+                b: 4
+            - name: print result
+              run: echo ${{ steps.sum.outputs.sum-result }}
