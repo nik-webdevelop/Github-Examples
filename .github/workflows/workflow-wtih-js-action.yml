@@ -1,6 +1,6 @@
 name: test js action workflow
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
     main:
