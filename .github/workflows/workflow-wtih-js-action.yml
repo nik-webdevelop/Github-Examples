@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: use js action
               id: sum
-              uses: nik-webdevelop/js-action@latest
+              uses: nik-webdevelop/js-action@1.0.1
               with: 
                 name: fooo
                 a: 13
