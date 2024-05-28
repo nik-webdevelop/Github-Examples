@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: nik-webdevelop/docker-action@v1.0.0
+        uses: nik-webdevelop/docker-action@v1.0.1
         with:
           name: 'foo bar'
       - name: Get the output time
